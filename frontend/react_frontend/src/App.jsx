@@ -23,9 +23,13 @@ function App() {
   }
 
   return(
-    !isUser ? (
       <UserContext.Provider value={[isUser, setUser]}>
         <Navbar showLoginForm={showLoginForm}/>
+        {isUser
+        ?
+        <TodaysMood/>
+        :
+        <>
         <GuestLayout showRegisterForm={showRegisterForm} showLoginForm={showLoginForm}/>
         <div id="registerContainer" ref={registerRef}>
           <Register/>
@@ -33,13 +37,8 @@ function App() {
         <div id="loginContainer" ref={loginRef}>
           <Login/>
         </div>
+        </>}
       </UserContext.Provider>
-    ) : (
-      <UserContext.Provider value={[isUser, setUser]}>
-        <Navbar/>
-        <TodaysMood/>
-      </UserContext.Provider>
-    )
   )
 } 
 

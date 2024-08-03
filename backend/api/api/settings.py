@@ -54,6 +54,11 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = ['http://localhost:5173']
+CORS_ALLOW_CREDENTIALS = True
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
+CSRF_COOKIE_HTTPONLY = True
+CSRF_TRUSTED_ORIGINS = ['http://localhost:8000']
 
 ROOT_URLCONF = 'api.urls'
 

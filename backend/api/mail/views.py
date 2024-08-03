@@ -9,7 +9,23 @@ from django.shortcuts import HttpResponse, HttpResponseRedirect, render
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 
-from .models import User
+from .models import User, Emotion
+    
+@csrf_exempt
+def save_emotion(request):
+    if not request.user.is_authenticated:
+        return JsonResponse({"success": False, "message": "User not authenticated"}, status=403)
+    
+    if request.method == "POST":
+        data = json.loads(request.body)
+        emotion = data.get('emotion')
+        description = data.get('description')
+
+        new_emotion = Emotion(emotion=emotion, description=description, user=request.user)
+        new_emotion.save()
+
+        return JsonResponse({"success": True, "message": "Successfully saved a new emotion"})
+    pass        
 
 def api_view(request):
     return JsonResponse({'message': 'React + Django'})
@@ -26,7 +42,7 @@ def login_view(request):
         # Check if authentication successful
         if user is not None:
             login(request, user)
-            return JsonResponse({'message': 'Successfully logged in!'})
+            return JsonResponse({'success': True, 'message': 'Successfully logged in!'})
         else:
             return JsonResponse({
                 "message": "Invalid email and/or password."

@@ -14,12 +14,17 @@ export default function Login() {
                 body: JSON.stringify({
                     email: email,
                     password: password
-                })
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                credentials: 'include'
             })
             .then(response => response.json())
             .then(data => {
+                if(data.success)
+                    setUser(true);
                 console.log(data.message);
-                setUser(true);
             })
         } catch(err) {
             console.log(err);

@@ -58,7 +58,7 @@ CORS_ALLOW_CREDENTIALS = True
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 CSRF_COOKIE_HTTPONLY = True
-CSRF_TRUSTED_ORIGINS = ['http://localhost:8000']
+CSRF_TRUSTED_ORIGINS = ['http://localhost:8000', 'http://localhost:5173']
 
 ROOT_URLCONF = 'api.urls'
 

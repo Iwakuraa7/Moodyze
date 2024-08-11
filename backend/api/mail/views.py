@@ -25,7 +25,37 @@ def save_emotion(request):
         new_emotion.save()
 
         return JsonResponse({"success": True, "message": "Successfully saved a new emotion"})
-    pass        
+    pass
+
+@csrf_exempt
+def get_user_calendar(request, user_id):
+    if request.method == 'GET':        
+        user = User.objects.get(pk=user_id)
+        emotions = user.emotions.all()
+
+        user_emotions = [
+            {
+                'id': emotion.id,
+                'timestamp': emotion.timestamp,
+                'emotion': emotion.emotion,
+                'description': emotion.description
+            }
+            for emotion in emotions
+        ]
+
+        return JsonResponse({
+            "calendar_info": user_emotions
+        })
+    pass
+    
+@csrf_exempt    
+def get_user_id(request):
+    if request.method == 'GET':
+        user = request.user
+        return JsonResponse({
+            "user_id": user.id
+        })
+    pass
 
 def api_view(request):
     return JsonResponse({'message': 'React + Django'})

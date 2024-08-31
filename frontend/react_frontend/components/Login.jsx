@@ -1,8 +1,8 @@
 import { useState, useContext } from "react"
-import { UserContext } from "../src/App";
+import { AppContext } from "../src/App";
 
 export default function Login() {
-    const [isUser, setUser] = useContext(UserContext);
+    const {isUser, setUser} = useContext(AppContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 

@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { AppContext } from "../src/App";
 
 export default function Calendar() {
     const [userId, setUserId] = useState(null);
+    const {calendar, setCalendar} = useContext(AppContext)
 
     useEffect(() => {
         try {
@@ -28,16 +30,32 @@ export default function Calendar() {
             fetch('http://localhost:8000/mail/get_user_calendar/'+userId)
             .then(response => response.json())
             .then(data => {
-                console.log(data)
+                setCalendar((prevCalendar) => ({
+                    ...prevCalendar,
+                    ...data
+                }));
             })
         } catch(err) {
             console.log(err)
         }
     }
 
+    useEffect(() => {
+        if(calendar) {
+            console.log(calendar);
+        }
+    }, [calendar]);
+
+    function showCalendar() {
+        for(let i = 0; i < calendar.length; i++) {
+
+        }
+    }
+
     return (
         <>
         <a onClick={getCalendarInfo}>Calendar</a>
+        <p>{calendar.calendar_info[0].id}</p>
         </>
     )
 }

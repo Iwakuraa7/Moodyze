@@ -1,8 +1,8 @@
 import { useState, useRef, useContext } from "react";
-import { UserContext } from "../src/App";
+import { AppContext } from "../src/App";
 
 export default function Register() {
-    const [isUser, setUser] = useContext(UserContext)
+    const {isUser, setUser} = useContext(AppContext)
     const [message, setMessage] = useState(null);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

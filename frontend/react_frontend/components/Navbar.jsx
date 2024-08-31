@@ -1,11 +1,11 @@
 import { useContext } from 'react'
 import styles from './Navbar.module.css'
-import { UserContext } from '../src/App'
+import { AppContext } from '../src/App'
 import Logout from './Logout'
 import Calendar from './Calendar'
 
 export default function Navbar(props) {
-    const [isUser, setUser] = useContext(UserContext)
+    const {isUser, setUser} = useContext(AppContext)
 
     return (
         <>

@@ -5,12 +5,19 @@ import Logout from './Logout'
 import Calendar from './Calendar'
 
 export default function Navbar(props) {
-    const {isUser, setUser} = useContext(AppContext)
+    const {isUser, setUser} = useContext(AppContext);
+    const {todaysMoodRef} = useContext(AppContext);
+    const {calendarRef} = useContext(AppContext);
+
+    function returnHome() {
+        todaysMoodRef.current.style.display = 'block';
+        calendarRef.current.style.display = 'none';
+    }
 
     return (
         <>
         <nav>
-            <a href="#">Home</a>
+            <a onClick={returnHome}>Home</a>
             {isUser ? <Calendar/> : null}
             {/* <a href="#">Calendar</a> */}
             <a href="#">Settings</a>

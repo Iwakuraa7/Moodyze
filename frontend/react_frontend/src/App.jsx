@@ -1,10 +1,11 @@
-import { createContext, useRef, useState } from 'react'
+import { createContext, useRef, useState, useEffect } from 'react'
 import './App.css'
 import Register from '../components/Register';
 import Login from '../components/Login';
 import Navbar from '../components/Navbar';
 import GuestLayout from '../components/GuestLayout';
 import TodaysMood from '../components/TodaysMood';
+import UserCalendar from '../components/UserCalendar';
 
 export const AppContext = createContext();
 // export const UserContext = createContext();
@@ -16,6 +17,7 @@ function App() {
   const registerRef = useRef(null);
   const loginRef = useRef(null);
   const todaysMoodRef = useRef(null);
+  const calendarRef = useRef(null);
 
   function showLoginForm() {
     registerRef.current.style.display = 'none';
@@ -26,6 +28,17 @@ function App() {
     loginRef.current.style.display = 'none';
   }
 
+  // To control calendar and todayMood's appeareance
+  useEffect(() => {
+    if(calendar) {
+        console.log(calendar.calendar_info);
+        todaysMoodRef.current.style.display = 'none';
+        calendarRef.current.style.display = 'block';
+        // showCalendar();
+        // console.log('showCalendar()');
+    }
+  }, [calendar]);  
+
   const contextValues = {
     isUser,
     setUser,
@@ -33,17 +46,35 @@ function App() {
     setCalendar,
     registerRef,
     loginRef,
-    todaysMoodRef
+    todaysMoodRef,
+    calendarRef
   }
 
+  // TODO:
+  // 31 August
+  // Fix the bug with UserCalendar component, why is it not rendering conditionally?
+  // The bug was within map function and the fact that UserCalendar component was in todayMoodRef's div :P
+
+  // TODO:
+  // 09 September
+  // 1) Decorate the front part:
+  //      textarea
+  //      login form
+  //      register form
+  // 2) Find a way to display calendar info
   return(
     <AppContext.Provider value={contextValues}>
       <Navbar showLoginForm={showLoginForm}/>
       {isUser
       ?
+      <>
       <div ref={todaysMoodRef}>
         <TodaysMood/>
       </div>
+      <div id="calendarContainer" ref={calendarRef}>
+        {calendar ? <UserCalendar/> : console.log('-calendar')}
+      </div>
+      </>
       :
       <>
       <GuestLayout showRegisterForm={showRegisterForm} showLoginForm={showLoginForm}/>

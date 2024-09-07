@@ -34,21 +34,21 @@ export default function Login() {
     return(
         <>
         <form onSubmit={login}>
-            <label>Email</label>
-            <input
+            <label><strong>Email</strong></label>
+            <br/><input
             type='text'
             value={email}
             onChange={(e) => {setEmail(e.target.value)}}
             />
             <br/>
-            <label>Password</label>
-            <input
+            <label><strong>Password</strong></label>
+            <br/><input
             type='password'
             value={password}
             onChange={(e) => {setPassword(e.target.value)}}
             />
             <br/>
-            <button type='submit'>Ok</button>
+            <button type='submit' style={{marginTop: "10px"}}>OK</button>
         </form>
         </>
     )

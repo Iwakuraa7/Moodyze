@@ -20,6 +20,7 @@ export default function TodaysMood() {
                 method: 'POST',
                 body: JSON.stringify({
                     emotion: currentEmotion,
+                    color: color,
                     description: document.querySelector('textarea').value
                 }),
                 headers: {
@@ -51,12 +52,12 @@ export default function TodaysMood() {
         <form onSubmit={handleTodaysEmotion}>
             <div className="emotionsContainer">
                 <div onClick={handleChosenEmotion} className="emotion" data-color="lightskyblue" style={{background: "lightskyblue"}}>Sad</div>
-                <div onClick={handleChosenEmotion} className="emotion" style={{background: "salmon"}}>Angry</div>
-                <div onClick={handleChosenEmotion} className="emotion" style={{background: "mistyrose"}}>Unsatisfied</div>
-                <div onClick={handleChosenEmotion} className="emotion" style={{background: "silver"}}>Hollow</div>
-                <div onClick={handleChosenEmotion} className="emotion" style={{background: "gold"}}>Happy</div>
-                <div onClick={handleChosenEmotion} className="emotion" style={{background: "rgb(178,209,200)"}}>Overwhelmed</div>
-                <div onClick={handleChosenEmotion} className="emotion" style={{background: "coral"}}>Anxious</div>
+                <div onClick={handleChosenEmotion} className="emotion" data-color="salmon" style={{background: "salmon"}}>Angry</div>
+                <div onClick={handleChosenEmotion} className="emotion" data-color="mistyrose" style={{background: "mistyrose"}}>Unsatisfied</div>
+                <div onClick={handleChosenEmotion} className="emotion" data-color="silver" style={{background: "silver"}}>Hollow</div>
+                <div onClick={handleChosenEmotion} className="emotion" data-color="gold" style={{background: "gold"}}>Happy</div>
+                <div onClick={handleChosenEmotion} className="emotion" data-color="rgb(178,209,200)" style={{background: "rgb(178,209,200)"}}>Overwhelmed</div>
+                <div onClick={handleChosenEmotion} className="emotion" data-color="coral" style={{background: "coral"}}>Anxious</div>
             </div>
             <h2>Why?</h2>
             <textarea></textarea><br/>

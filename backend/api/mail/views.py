@@ -19,9 +19,10 @@ def save_emotion(request):
     if request.method == "POST":
         data = json.loads(request.body)
         emotion = data.get('emotion')
+        color = data.get('color')
         description = data.get('description')
 
-        new_emotion = Emotion(emotion=emotion, description=description, user=request.user)
+        new_emotion = Emotion(emotion=emotion, color=color, description=description, user=request.user)
         new_emotion.save()
 
         return JsonResponse({"success": True, "message": "Successfully saved a new emotion"})
@@ -38,6 +39,7 @@ def get_user_calendar(request, user_id):
                 'id': emotion.id,
                 'timestamp': emotion.timestamp,
                 'emotion': emotion.emotion,
+                'color': emotion.color,
                 'description': emotion.description
             }
             for emotion in emotions

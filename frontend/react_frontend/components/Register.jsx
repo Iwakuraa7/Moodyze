@@ -61,8 +61,8 @@ export default function Register() {
       {/* <h1>Moodyze</h1>
       <h3>Register</h3> */}
       <form onSubmit={register}>
-        <label>Email</label>
-        <input
+        <label><strong>Email</strong></label>
+        <br/><input
         id='regEmail'
         type='text'
         value={email}
@@ -71,8 +71,8 @@ export default function Register() {
         />
         <br/>
   
-        <label>Password</label>
-        <input
+        <label><strong>Password</strong></label>
+        <br/><input
         id='regPswrd'
         type='password'
         value={password}
@@ -81,8 +81,8 @@ export default function Register() {
         />
         <br/>
   
-        <label>Repeat the password</label>
-        <input
+        <label><strong>Repeat the password</strong></label>
+        <br/><input
         id='regConf'
         type='password'
         value={conf}
@@ -91,7 +91,7 @@ export default function Register() {
         />
         <br/>
   
-        <button type='submit'>Ok</button>
+        <button type='submit' style={{marginTop: "10px"}}>OK</button>
       </form>
       </>
     )    

@@ -8,8 +8,6 @@ import TodaysMood from '../components/TodaysMood';
 import UserCalendar from '../components/UserCalendar';
 
 export const AppContext = createContext();
-// export const UserContext = createContext();
-// export const CalendarContext = createContext();
 
 function App() {
   const [isUser, setUser] = useState(false);
@@ -34,8 +32,6 @@ function App() {
         console.log(calendar.calendar_info);
         todaysMoodRef.current.style.display = 'none';
         calendarRef.current.style.display = 'block';
-        // showCalendar();
-        // console.log('showCalendar()');
     }
   }, [calendar]);  
 

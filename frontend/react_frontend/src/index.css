@@ -47,9 +47,10 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-/* button:hover {
+button:hover {
   border-color: #646cff;
 }
+/*
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -118,4 +119,34 @@ nav {
 .emotionsContainer {
   display: flex;
   justify-content: space-evenly;
+}
+
+textarea {
+  border: 1px solid #aaa;
+  width: 700px;
+  height: 400px;
+  border-radius: 5px;
+}
+
+textarea:hover {
+  border-color: #646cff;
+}
+
+textarea:focus {
+  outline: 1px solid #646cff;
+}
+
+input {
+  width: 200px;
+  height: 25px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+}
+
+input:focus {
+  outline: 1px solid #646cff;
+}
+
+input:hover {
+  border-color: #646cff;
 }

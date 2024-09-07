@@ -19,7 +19,9 @@ export default function UserCalendar() {
             <ul>
                 {calendar && calendar.calendar_info.map((day) => (
                 <li key={day.id}>
-                    emotion - {day.emotion}
+                    {day.timestamp.slice(0, 10)}<br/>
+                    {day.emotion}<br/>
+                    {day.description}
                 </li>
                 ))}
             </ul>

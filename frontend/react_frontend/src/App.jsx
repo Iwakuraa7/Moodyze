@@ -48,15 +48,15 @@ function App() {
 
   // TODO:
   // 31 August
-  // Fix the bug with UserCalendar component, why is it not rendering conditionally?
+  // - Fix the bug with UserCalendar component, why is it not rendering conditionally?: ✓
   // The bug was within map function and the fact that UserCalendar component was in todayMoodRef's div :P
 
   // TODO:
   // 09 September
-  // 1) Decorate the front part:
-  //      textarea
-  //      login form
-  //      register form
+  // 1) Decorate the front part: ✓
+  //      textarea: ✓
+  //      login form: ✓
+  //      register form: ✓
   // 2) Find a way to display calendar info
   return(
     <AppContext.Provider value={contextValues}>

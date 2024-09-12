@@ -109,8 +109,8 @@ nav {
   flex-wrap: wrap;
   column-gap: 2%;
   justify-items: center;
-  width: 38vw;
-  height: 50vh;
+  width: 37.3vw;
+  min-height: 50vh;
 }
 
 .calendarDiv {
@@ -174,4 +174,18 @@ input:focus {
 
 input:hover {
   border-color: #646cff;
+}
+
+.dayCardContainer {
+  width: 40vw;
+  min-height: 50vh;
+  border: 1px solid #aaaa;
+  border-radius: 5px;
+  background-color: ghostwhite;
+  display: flex;
+  flex-direction: column;
+}
+
+.dayCardHeader {
+  border-bottom: 1px solid #aaaa;
 }

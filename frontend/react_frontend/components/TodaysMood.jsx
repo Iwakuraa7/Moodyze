@@ -41,6 +41,10 @@ export default function TodaysMood() {
         }
     }
     
+    function handleSubmit() {
+        
+    }
+
     // TODO
     // Add CSS to emotion buttons, so that when clicked it lets users to know
     // Track whether user already saved todays emotion, in order to not let them create another emotion object in a single day

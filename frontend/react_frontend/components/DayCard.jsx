@@ -1,9 +1,13 @@
-export default function DayCard(day) {
+export default function DayCard(props) {
+    const day = props.dayInfo;
+
     return(
-        <div>
-            <p>{day.timestamp.slice(0, 10)}</p>
-            <p>{day.emotion}</p>
-            <p>{day.description}</p>            
+        <div className="dayCardContainer">
+            <div className="dayCardHeader">
+                {day.emotion}<br/>
+                {day.timestamp.slice(0, 10)}
+            </div>
+            <p>{day.description}</p>
         </div>
     )
 }

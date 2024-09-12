@@ -29,7 +29,7 @@ function App() {
   // To control calendar and todayMood's appeareance
   useEffect(() => {
     if(calendar) {
-        console.log(calendar.calendar_info);
+        console.log(calendar);
         todaysMoodRef.current.style.display = 'none';
         calendarRef.current.style.display = 'block';
     }
@@ -57,7 +57,9 @@ function App() {
   //      textarea: ✓
   //      login form: ✓
   //      register form: ✓
-  // 2) Find a way to display calendar info
+  // 2) Find a way to display calendar info:
+  //    - Fix the bug when null is trying to represent itself and it breaks all the days ✓
+  //    - Display: "flex";
   return(
     <AppContext.Provider value={contextValues}>
       <Navbar showLoginForm={showLoginForm}/>

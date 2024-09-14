@@ -21,11 +21,15 @@ def save_emotion(request):
         emotion = data.get('emotion')
         color = data.get('color')
         description = data.get('description')
+        if emotion == None:
+            return JsonResponse({"success": False, "message": "You forgot to choose an emotion!"})
+        # if description == None:
+        #     return JsonResponse({"success": False, "message": "You forgot to write description of the day!"})
 
         new_emotion = Emotion(emotion=emotion, color=color, description=description, user=request.user)
         new_emotion.save()
 
-        return JsonResponse({"success": True, "message": "Successfully saved a new emotion"})
+        return JsonResponse({"success": True, "message": "Successfully added to calendar"})
     pass
 
 @csrf_exempt

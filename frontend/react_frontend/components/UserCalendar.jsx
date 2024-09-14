@@ -119,7 +119,7 @@ export default function UserCalendar() {
             <h2>{month[checkingMonth]}</h2>
             <div className="calendarDiv">
                 <div id="daysContainer" className="calendarContainer" ref={daysContainerRef}>
-                    {yearData[`year${currentYear}`][checkingMonth].days}
+                    {yearData[`year${currentYear}`][checkingMonth].days.length === 0 ? <h3>No records in this month</h3> : yearData[`year${currentYear}`][checkingMonth].days}
                 </div>
                 {/* {checkingMonth > currentMonth && */
                 <img onClick={loadPrevMonthDays} src="https://www.svgrepo.com/show/18507/back-button.svg" style={{width: "15px", height: "15px"}}></img>}

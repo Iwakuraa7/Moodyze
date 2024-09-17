@@ -12,20 +12,6 @@ export default function Register() {
     const pswrdRef = useRef(null);
     const confRef = useRef(null);
   
-    // useEffect(() => {
-    //   async function fetchData() {
-    //     try {
-    //       const response = await fetch('http://localhost:8000/mail/api');
-    //       const data = await response.json();
-    //       setMessage(data.message);
-    //     } catch(err) {
-    //       console.log(err);
-    //     }
-    //   }
-  
-    //   fetchData();
-    // }, [])
-  
     async function register(e) {
       e.preventDefault();
       try {
@@ -48,18 +34,12 @@ export default function Register() {
       setEmail('');
       setPassword('');
       setConf('');
-      // emailRef.current.value = '';
-      // pswrdRef.current.value = '';
-      // confRef.current.value = '';
     }
   
     return (
       <>
-      {/* <h2>API message:</h2> */}
       <h3>{message}</h3>
   
-      {/* <h1>Moodyze</h1>
-      <h3>Register</h3> */}
       <form onSubmit={register}>
         <label><strong>Email</strong></label>
         <br/><input

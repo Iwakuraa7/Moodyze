@@ -31,16 +31,6 @@ export default function UserCalendar() {
             12: { name: "December", days: [] }
         }
     });
-    
-
-    // How to solve the problem:
-    // 1) Create an object that will consist all months with corresonding days. Something like:
-    //    {Year : {January : {...days}, February : {...days}, March : {...days}, April : {...days}, May : {...days},
-    //     June : {...days}, July : {...days}, August : {...days}, September : {...days},
-    //     October : {...days}, November : {...days}, December : {...days}.}
-    //            
-    // 2) Iterate through each element of the 'calendar.calendar info', and depending on the month timestamp, add to the corresponding month in the Year Object
-    // 3) Take the month of the current day, match it with the Year object, and depending on that just increment the index or decrement it.
 
     function handleDayCheck(day) {
         todaysMoodRef.current.style.display = 'none';
@@ -115,21 +105,23 @@ export default function UserCalendar() {
 
     
     return(
+        <>
         <div>
             <h2>{month[checkingMonth]}</h2>
             <div className="calendarDiv">
                 <div id="daysContainer" className="calendarContainer" ref={daysContainerRef}>
                     {yearData[`year${currentYear}`][checkingMonth].days.length === 0 ? <h3>No records in this month</h3> : yearData[`year${currentYear}`][checkingMonth].days}
                 </div>
-                {/* {checkingMonth > currentMonth && */
-                <img onClick={loadPrevMonthDays} src="https://www.svgrepo.com/show/18507/back-button.svg" style={{width: "15px", height: "15px"}}></img>}
-                {/* {yearData[`year${currentYear}`][checkingMonth + 1].days && */
-                <img onClick={() => loadNextMonthDays()} src="https://icons.veryicon.com/png/o/internet--web/web-8/next-step-28.png" style={{width: "15px", height: "15px"}}></img>}
                 {selectedDay && <div id='selectedDayCard' ref={selectedDayCardRef}>
                 <img onClick={handleBackToCalendar} src="https://www.autodraw.com/assets/images/icons/tools/undo.svg"></img>
                 {selectedDay}
                 </div>}  
-            </div>
+            </div>            
         </div>
+        <div className="browseContainer">
+        {<img onClick={loadPrevMonthDays} src="https://www.svgrepo.com/show/18507/back-button.svg" style={{width: "40px", height: "40px"}}></img>}
+        {<img onClick={() => loadNextMonthDays()} src="https://icons.veryicon.com/png/o/internet--web/web-8/next-step-28.png" style={{width: "40px", height: "40px"}}></img>}        
+        </div>
+        </>
     )
 }

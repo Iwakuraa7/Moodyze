@@ -60,6 +60,7 @@ function App() {
   // 2) Find a way to display calendar info:
   //    - Fix the bug when null is trying to represent itself and it breaks all the days ✓
   //    - Display: "flex";
+  
   return(
     <AppContext.Provider value={contextValues}>
       <Navbar showLoginForm={showLoginForm}/>
